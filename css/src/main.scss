@@ -35,6 +35,7 @@ header {
 	background-size: contain;
 	text-align: center;
 	padding: 30px;
+	border-bottom: 25px solid $lime;
 	
 	@include respond-to( 768px ) {
 		padding: 40px;
