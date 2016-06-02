@@ -2,12 +2,8 @@
 
 // color variables
 $grey: #414042;
-$blue: #0569B2;
-$blue-dark: #214099;
-$teal: #27AAE1;
-$green: #66BD5A;
+$green: #365F3C;
 $lime: #8DC63F;
-$yellow: #FFF200;
 
 
 @import "reset";
@@ -24,7 +20,6 @@ $yellow: #FFF200;
 
 // background-container
 .container {
-	background: white;
 	padding-bottom: 40px;
 
 	@include respond-to( 1220px ) {
@@ -36,41 +31,17 @@ $yellow: #FFF200;
 // header styles
 header {
 	position: relative;
-	background: $blue url(../img/bg-header.jpg) top center repeat-x;
-	background-size: cover;
+	background: url(../img/bg-header.png) top center repeat-x;
+	background-size: contain;
 	text-align: center;
-
-	img {
-		display: block;
-	}
+	padding: 30px;
 	
-	.wrap {
-		height: 300px;
+	@include respond-to( 768px ) {
+		padding: 40px;
+	}
 
-		.icon {
-			margin-left: 30px;
-		}
-
-		.header {
-			background-color: white;
-			border: 8px solid $blue;
-			box-shadow: 5px 5px 15px rgba( 0, 0, 0, .5 );
-			width: 220px;
-			position: absolute;
-			bottom: -20px;
-			left: 50%;
-			margin-left: -110px;
-
-			@include respond-to( 600px ) {
-				left: 30px;
-				margin-left: 0;
-				width: 300px;
-			}
-		}
-
-		@include respond-to( 600px ) {
-			height: 400px;
-		}
+	@include respond-to( 960px ) {
+		padding: 60px;
 	}
 }
 
@@ -82,32 +53,6 @@ header {
 	position: relative;
 	@include clearfix;
 }
-
-
-
-// top border
-.top-border {
-	background: $lime url(../img/bg-overlay.png) top center no-repeat;
-	background-size: cover;
-	height: 35px;
-
-	@include respond-to( 600px ) {
-		height: 45px;
-	}
-
-	@include respond-to( 900px ) {
-		height: 55px;
-	}
-}
-
-
-
-// main content container
-.main {
-	background: $blue url(../img/bg-overlay.png) top center repeat-y;
-	background-size: contain;
-}
-
 
 
 // padding div that'll resize for larger screens.
@@ -138,9 +83,6 @@ header {
 
 
 // colors
-.bg-blue { background: $blue; }
-.bg-blue-dark { background: $blue-dark; }
-.bg-teal { background: $teal; }
 .bg-green { background: $green; }
 .bg-lime { background: $lime; }
 
@@ -149,7 +91,6 @@ header {
 // tool styles
 .tool {
 	padding: 0;
-	color: white;
 	
 	@include respond-to( 768px ) {
 		padding: 20px 40px;
@@ -157,6 +98,7 @@ header {
 
 	.calculator {
 		padding: 10px 15px 10px;
+		color: white;
 		@include font-title;
 
 		button, input[type=submit], .btn {
@@ -183,13 +125,12 @@ header {
 	display: none;
 	text-align: center;
 	@extend .pad;
-	color: white;
 
 	// large title
 	h2 {
 		@include font;
 		font-size: 1.8em;
-		color: $yellow;
+		color: $green;
 
 		@include respond-to( 768px ) {
 			font-size: 3em;
@@ -217,10 +158,10 @@ input[type=submit], button, .btn {
 	@include font-title;
 	padding: 15px;
 	background: $lime;
-	color: $blue-dark;
+	color: white;
 	border: 0;
 	border-radius: 10px;
-	font-size: 2em;
+	font-size: 1.5em;
 	line-height: 1.4em;
 	text-transform: uppercase;
 	display: block;
@@ -254,6 +195,10 @@ input[type=submit], button, .btn {
 		color: white;
 	}
 
+	&.calculate {
+		background: $green url(../img/button-arrow.png) right center no-repeat;
+	}
+
 	@include respond-to( 768px ) {
 		max-width: 50%;
 		margin: 30px auto;
@@ -266,13 +211,10 @@ input[type=submit], button, .btn {
 .footer-bar {
 	padding: 20px;
 	text-align: center;
+	border-top: 15px solid $lime;
 
 	&, a {
 		color: $grey;
-	}
-
-	h2 {
-		@include font;
 	}
 
 	h2 {

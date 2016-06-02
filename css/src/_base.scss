@@ -3,8 +3,7 @@ body {
 	@include font;
 	font-size: 85%;
 	line-height: 1.5em;
-	color: $blue;
-	background-color: #eee;
+	color: $green;
 	
 	@include respond-to( 1024px ) {
 		font-size: 100%;
@@ -12,12 +11,12 @@ body {
 }
 
 a {
-	color: $blue;
+	color: $lime;
 	text-decoration: none;
 	cursor: pointer;
 
 	&:hover {
-		color: lighten( $blue, 10% );
+		color: lighten( $lime, 5% );
 	}
 }
 
@@ -29,6 +28,7 @@ h1, h2, h3, h4, h5, h6, p {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 	line-height: 1.2em;
+	@include font-title-light;
 }
 
 h1 {
