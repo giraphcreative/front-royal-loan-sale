@@ -3,7 +3,7 @@
 // color variables
 $grey: #414042;
 $green: #365F3C;
-$lime: #8DC63F;
+$lime: #81C341;
 
 
 @import "reset";
@@ -128,7 +128,6 @@ header {
 
 	// large title
 	h2 {
-		@include font;
 		font-size: 1.8em;
 		color: $green;
 
@@ -136,9 +135,14 @@ header {
 			font-size: 3em;
 			padding: 10px 20px;
 		}
+
+		&.title {
+			color: $lime;
+		}
 	}
 
 	p {
+		@include font-title-light;
 		font-size: 1.2em;
 
 		strong {
@@ -221,6 +225,7 @@ input[type=submit], button, .btn {
 		font-size: 2.4em;
 		line-height: 100px;
 		text-transform: uppercase;
+		color: $lime;
 	}
 
 	h4 {
