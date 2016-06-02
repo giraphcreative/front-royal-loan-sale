@@ -3,25 +3,15 @@
 $(function(){
 	
 	var recalculate_total = function(){
-			var total = parseFloat( typeof( $(".result.home").html() )!=="undefined" ? $(".result.home").html().replace("$","").replace(",","") : 0 )+
-				parseFloat( typeof( $(".result.loan-auto").html() )!=="undefined" ? $(".result.loan-auto").html().replace("$","").replace(",","") : 0 )+
-				parseFloat( typeof( $(".result.loan-personal").html() )!=="undefined" ? $(".result.loan-personal").html().replace("$","").replace(",","") : 0 );
+			var total = parseFloat( typeof( $(".result.loan-auto").html() )!=="undefined" ? $(".result.loan-auto").html().replace("$","").replace(",","") : 0 )+
+				parseFloat( typeof( $(".result.loan-boat").html() )!=="undefined" ? $(".result.loan-boat").html().replace("$","").replace(",","") : 0 )+
+				parseFloat( typeof( $(".result.loan-motorcycle").html() )!=="undefined" ? $(".result.loan-motorcycle").html().replace("$","").replace(",","") : 0 )+
+				parseFloat( typeof( $(".result.loan-rv").html() )!=="undefined" ? $(".result.loan-rv").html().replace("$","").replace(",","") : 0 );
 			if ( total>0 ) {
 				$(".result.total").html(""+total.toFixed(2));
 			}
+			console.log( 'update total' );
 		};
-
-	$(".calculator.home").accrue({
-		mode: "compare",
-		response_output_div: ".result.home",
-		response_compare:"%savings%",
-		error_text:"0",
-		callback: function( elem, data ){
-			if ( data!==0 ) {
-				recalculate_total();
-			}
-		}
-	});
 
 	$(".calculator.loan-auto").accrue({
 		mode: "compare",
@@ -35,9 +25,33 @@ $(function(){
 		}
 	});
 
-	$(".calculator.loan-personal").accrue({
+	$(".calculator.loan-boat").accrue({
 		mode: "compare",
-		response_output_div: ".result.loan-personal",
+		response_output_div: ".result.loan-boat",
+		response_compare:"%savings%",
+		error_text:"0",
+		callback: function( elem, data ){
+			if ( data!==0 ) {
+				recalculate_total();
+			}
+		}
+	});
+
+	$(".calculator.loan-motorcycle").accrue({
+		mode: "compare",
+		response_output_div: ".result.loan-motorcycle",
+		response_compare:"%savings%",
+		error_text:"0",
+		callback: function( elem, data ){
+			if ( data!==0 ) {
+				recalculate_total();
+			}
+		}
+	});
+
+	$(".calculator.loan-rv").accrue({
+		mode: "compare",
+		response_output_div: ".result.loan-rv",
 		response_compare:"%savings%",
 		error_text:"0",
 		callback: function( elem, data ){
